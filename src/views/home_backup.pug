@@ -1,0 +1,36 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Ioom
+        link(rel="stylesheet", href="https://unpkg.com/mvp.css")
+    body 
+        header
+            h1 Ioom           
+        main
+            div#welcome
+                form
+                    input#roomNm(placeholder="room name", required, type="text")
+                    input#nickname(placeholder="nickname", required, type="text")
+                    button Enter Room
+            div#room(style={display:"flex"})
+                div#call
+                    div#myStream
+                        div#videoDiv
+                            video#myFace(autoplay, playsinline, width="400", height="400")
+                            //- video#peerFace(autoplay, playsinline, width="400", height="400")
+                        div#buttonDiv
+                            button#mute Mute
+                            button#camera Turn camera Off
+                        div#selectDiv
+                            select#cameras
+                div#chat
+                    h3
+                    ul
+                    form#msg
+                        input(placeholder="message", required, type="text")
+                        button Send
+        script(src="/socket.io/socket.io.js")
+        script(src="/public/js/app.js")
